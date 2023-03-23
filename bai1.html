@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let a = prompt("Nhap vao 1 chuoi");
+      let b = 0;
+      let c = a.length - 1;
+      let reversed_a = "";
+      while (b <= c) {
+        let d = a[c];
+        a = a.slice(0, c) + a[b] + a.slice(c + 1);
+        a = a.slice(0, b) + d + a.slice(b + 1);
+        b++;
+        c--;
+      }
+      document.write(a);
+    </script>
+  </body>
+</html>

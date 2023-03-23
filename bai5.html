@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <h2>Quản lí nhân viên</h2>
+  <label for="">Tên nhân viên</label>
+  <input type="text" id="nameNhanVien" />
+  <button onclick="addNhanVien()">Add</button>
+  <h3>Quản lí nhân viên</h3>
+  <table id="tableNhanVien"></table>
+  <body>
+    <table>
+      <!-- <tr>
+        <td>Tên Nhân viên</td>
+      </tr> -->
+    </table>
+    <script>
+      let listNhanVien = ["Nhan vien a", "Nhan vien b", "Nhan vien c"];
+      function addNhanVien() {
+        let _nameNhanVien = document.getElementById("nameNhanVien").value;
+        listNhanVien.push(_nameNhanVien);
+        renderNhanVien();
+      }
+      function renderNhanVien() {
+        let result = "";
+        for (let i = 0; i < listNhanVien.length; i++) {
+          result += `
+            <tr>
+                 <td>
+                    ${listNhanVien[i]}
+                 </td>
+                 <td><button onclick="editNhanVien(${i})">Edit</button></td>
+                 <td><button onclick="deleteNhanVien(${i})">Delete</button></td>
+            </tr>
+            `;
+        }
+        document.getElementById("tableNhanVien").innerHTML = result;
+      }
+      renderNhanVien();
+      function deleteNhanVien(index) {
+        listNhanVien.splice(index, 1);
+        renderNhanVien();
+      }
+      function editNhanVien(index) {
+        console.log(12312313);
+        let valueEdit = prompt(`Nhap ten ban muon doi`);
+        listNhanVien.splice(index, 1, valueEdit);
+        renderNhanVien();
+      }
+    </script>
+  </body>
+</html>
